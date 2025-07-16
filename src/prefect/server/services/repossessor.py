@@ -45,7 +45,7 @@ class Repossessor(LoopService):
                     )
                     continue
                 self.logger.info(
-                    f"Revoking lease {expired_lease_id} for {expired_lease.resource_ids} with {expired_lease.metadata.slots} slots"
+                    f"Revoking lease {expired_lease_id} for {len(expired_lease.resource_ids)} concurrency limits with {expired_lease.metadata.slots} slots"
                 )
                 await bulk_decrement_active_slots(
                     session=session,
